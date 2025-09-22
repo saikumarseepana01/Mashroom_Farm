@@ -8,7 +8,7 @@ body {
   line-height: 1.7;
   margin: 0;
   padding: 0;
-  background-color: #f9f7f3; /* A soft, earthy off-white */
+  background-color: #F5F5DC; /* Beige */
   color: #111;
 }
 
@@ -188,9 +188,9 @@ footer a:hover {
 }
 
 /* --- Navigation Bar --- */
-.main-nav {
+/* .main-nav { */
   /* Styles moved to .nav-list */
-}
+/* } */
 .nav-list {
   list-style: none;
   padding: 0;
