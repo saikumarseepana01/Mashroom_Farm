@@ -1,0 +1,474 @@
+/* --- General Styles --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f7f3; /* A soft, earthy off-white */
+  color: #111;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700; /* Bold font for headings */
+  color: #256349; /* Darker green for WCAG AA compliance */
+}
+
+a {
+  color: #256349; /* Darker green for WCAG AA compliance */
+  text-decoration: none;
+  transition: opacity 0.2s ease; /* Add a smooth transition for hover */
+}
+
+a:hover {
+  opacity: 0.8; /* Fade link slightly on hover for a modern feel */
+}
+
+/* --- Accessibility: Visible Focus --- */
+a:focus-visible,
+button:focus-visible,
+.recipe-card:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
+
+/* Screen-reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* --- Skip Link Styles for Accessibility --- */
+.skip-link {
+  position: absolute;
+  top: -100px; /* Position off-screen */
+  left: 0;
+  background: #254e38; /* Darker green for WCAG AA */
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 1100; /* Ensure it's on top of other content */
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0; /* Bring into view on focus */
+}
+
+/* --- Layout Containers --- */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+section {
+  background-color: #fff;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+}
+
+/* --- Header & Footer --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #254e38; /* Darker green for WCAG AA */
+  color: #ffffff;
+  padding: 1rem 2rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #ffffff;
+}
+
+header p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.header-branding {
+  text-align: left;
+}
+
+footer {
+  background-color: #254e38; /* Darker green for WCAG AA */
+  color: rgba(255, 255, 255, 0.9); /* Light text for contrast */
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: 1.5rem;
+}
+
+footer a {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #256349; /* Use AA-compliant green for text */
+  padding: 0.5rem 1rem;
+  border-radius: 999px; /* Pill-shaped buttons */
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0.5rem 0.25rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+footer a:hover {
+  opacity: 1; /* Override general link hover */
+  background-color: #f0fff4; /* Light mint green on hover */
+  transform: translateY(-2px);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 1rem;
+}
+
+/* --- Hamburger Menu Button --- */
+.nav-toggle {
+  display: none; /* Hidden on desktop */
+  position: absolute;
+  z-index: 2000;
+  right: 2rem;
+  top: 2rem;
+  background: transparent;
+  border: 0;
+  width: 2rem;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+
+.nav-toggle::before,
+.nav-toggle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.nav-toggle::before {
+  top: 25%;
+}
+
+.nav-toggle::after {
+  bottom: 25%;
+}
+
+.nav-toggle[aria-expanded="true"]::before {
+  transform: translateY(5.5px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"]::after {
+  transform: translateY(-5.5px) rotate(-45deg);
+}
+
+/* --- Navigation Bar --- */
+.main-nav {
+  /* Styles moved to .nav-list */
+}
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem; /* Add vertical gap for wrapping */
+}
+
+.main-nav a {
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  display: inline-block; /* Ensures padding is applied correctly */
+}
+
+/* --- Specific Sections --- */
+
+/* About Section */
+.about-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-section div {
+  flex: 1;
+}
+
+.about-section img {
+  flex-basis: 300px;
+  object-fit: cover;
+  height: 250px; /* Constrain image height */
+}
+
+/* Image Gallery */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.image-gallery img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* Recipes Grid */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+.recipe-card {
+  background-color: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  overflow: hidden; /* Ensures content respects border-radius */
+}
+
+.recipe-card:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+}
+
+.recipe-card h3 {
+  margin-top: 0;
+  padding: 1rem 1.5rem 0.5rem;
+  margin-bottom: 0;
+}
+
+.video-preview {
+  position: relative;
+}
+
+.video-preview .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 60px;
+  padding-left: 5px; /* Optical alignment for play button */
+  transition: background-color 0.3s ease;
+}
+
+.recipe-card:hover .play-icon {
+  background-color: rgba(37, 99, 73, 0.8); /* Updated to match new darker green */
+}
+
+/* Styles for the recipe details inside the modal */
+.recipe-details ul, .recipe-details ol {
+  padding-left: 20px;
+}
+
+.recipe-details li {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Video Container */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+  margin-top: 1.5rem;
+  border-radius: 8px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Modal (Dialog Box) Styles --- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 1000;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.4s ease;
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
+}
+
+.close-button { /* Now a <button> element */
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #777; /* Darkened for better contrast */
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  header {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: fixed;
+    z-index: 1500;
+    inset: 0 0 0 30%;
+    background: rgba(20, 20, 20, 0.9);
+    backdrop-filter: blur(1rem);
+    transform: translateX(100%);
+    transition: transform 350ms ease-out;
+  }
+
+  .main-nav[data-visible="true"] {
+    transform: translateX(0%);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    padding: min(20vh, 10rem) 2rem;
+    gap: 2rem;
+  }
+
+  .header-branding {
+    text-align: left;
+  }
+
+  header h1 {
+    font-size: 2.5rem; /* Keep it a bit larger for mobile hero */
+  }
+
+  .about-section {
+    flex-direction: column;
+  }
+
+  .about-section img {
+    flex-basis: auto; /* Reset basis */
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .recipes-grid {
+    grid-template-columns: 1fr; /* Stack recipe cards on mobile */
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  footer a {
+    width: 80%;
+    max-width: 300px;
+  }
+}
