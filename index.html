@@ -31,6 +31,10 @@
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#recipes">Recipes</a></li>
       </ul>
+      <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme">
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.64 5.64c.39.39 1.02.39 1.41 0s.39-1.02 0-1.41L5.64 2.81c-.39-.39-1.02-.39-1.41 0s-.39 1.02 0 1.41L5.64 5.64zm12.73 12.73c.39.39 1.02.39 1.41 0s.39-1.02 0-1.41l-1.41-1.41c-.39-.39-1.02-.39-1.41 0s-.39 1.02 0 1.41l1.41 1.41zM2.81 18.36c.39.39 1.02.39 1.41 0s.39-1.02 0-1.41l-1.41-1.41c-.39-.39-1.02-.39-1.41 0s-.39 1.02 0 1.41l1.41 1.41zm12.73-12.73c.39.39 1.02.39 1.41 0s.39-1.02 0-1.41l-1.41-1.41c-.39-.39-1.02-.39-1.41 0s-.39 1.02 0 1.41l1.41 1.41z"/></svg>
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.64-.11 2.41-.31-.3-.58-.41-1.25-.41-1.94 0-2.76 2.24-5 5-5 .69 0 1.36.11 1.94.41.2-.77.31-1.58.31-2.41 0-4.97-4.03-9-9-9z"/></svg>
+      </button>
     </nav>
   </header>
 
@@ -129,9 +133,48 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- MODALS START HERE -->
+  <div id="purchase-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="purchase-modal-title"
+    aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-button" aria-label="Close">&times;</button>
+      <h2 id="purchase-modal-title" class="modal-form-title">Purchase Milky Mushrooms</h2>
+      <form id="purchase-form">
+        <fieldset class="form-group">
+          <legend>Quantity</legend>
+          <div class="quantity-controls">
+            <label for="quantity-value" class="sr-only">Amount</label>
+            <select id="quantity-value" name="quantity-value" required></select>
+            <label for="quantity-unit" class="sr-only">Unit</label>
+            <select id="quantity-unit" name="quantity-unit" required>
+              <option value="kg" selected>kg</option>
+              <option value="g">grams</option>
+            </select>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Delivery Address:</label>
+          <textarea id="address" name="address" rows="4" required></textarea>
+        </div>
+        <div class="cost-display">
+          <h3>Total Cost: ₹<span id="total-cost">0</span></h3>
+        </div>
+        <button type="submit" class="btn-purchase">Purchase</button>
+      </form>
+    </div>
+  </div>
+
   <div id="modal-gravy" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-gravy-title"
     aria-hidden="true">
     <div class="modal-content">
@@ -330,6 +373,13 @@
   </div>
   <!-- MODALS END HERE -->
 
+  <button id="open-purchase-modal-btn" class="cart-fab" aria-label="Open purchase cart">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+      <path
+        d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+    </svg>
+  </button>
+
   <footer id="footer-content" tabindex="-1">
     <p>To know more about the farm, contact us:</p>
     <div class="footer-links">
@@ -339,121 +389,7 @@
     <p class="copyright">© 2025 Shroom Farms | Healthy Living with Mushrooms</p>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const recipeCards = document.querySelectorAll('.recipe-card');
-      let previouslyFocusedElement;
-
-      // Function to open a modal
-      const openModal = (modal, card) => {
-        if (modal == null) return;
-        previouslyFocusedElement = card; // Save the element that opened the modal
-        modal.classList.add('active');
-        modal.setAttribute('aria-hidden', 'false');
-        modal.querySelector('.close-button').focus(); // Move focus to the close button
-      };
-
-      // Function to close a modal
-      const closeModal = (modal) => {
-        if (modal == null) return;
-        modal.classList.remove('active');
-        modal.setAttribute('aria-hidden', 'true');
-
-        // Stop YouTube video from playing when modal is closed
-        const iframe = modal.querySelector('iframe');
-        if (iframe) {
-          const iframeSrc = iframe.src;
-          iframe.src = iframeSrc;
-        }
-
-        if (previouslyFocusedElement) {
-          previouslyFocusedElement.focus(); // Return focus to the card that opened the modal
-        }
-      };
-
-      // Add listeners to each recipe card
-      recipeCards.forEach(card => {
-        // Open on click
-        card.addEventListener('click', () => {
-          const modal = document.querySelector(card.dataset.modalTarget);
-          openModal(modal, card);
-        });
-
-        // Open on Enter/Space key for keyboard users
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault(); // Prevent space from scrolling the page
-            const modal = document.querySelector(card.dataset.modalTarget);
-            openModal(modal, card);
-          }
-        });
-      });
-
-      // Add listeners to all modals
-      document.querySelectorAll('.modal').forEach(modal => {
-        // Close when clicking the overlay
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) {
-            closeModal(modal);
-          }
-        });
-
-        // Close when clicking the close button
-        modal.querySelector('.close-button').addEventListener('click', () => {
-          closeModal(modal);
-        });
-
-        // Trap focus inside the modal
-        modal.addEventListener('keydown', (e) => {
-          if (e.key !== 'Tab') return;
-
-          const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-          const firstElement = focusableElements[0];
-          const lastElement = focusableElements[focusableElements.length - 1];
-
-          if (e.shiftKey) { // if shift + tab
-            if (document.activeElement === firstElement) {
-              lastElement.focus();
-              e.preventDefault();
-            }
-          } else { // if tab
-            if (document.activeElement === lastElement) {
-              firstElement.focus();
-              e.preventDefault();
-            }
-          }
-        });
-      });
-
-      // Close any active modal on Escape key press
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          const activeModal = document.querySelector('.modal.active');
-          if (activeModal) {
-            closeModal(activeModal);
-          }
-        }
-      });
-
-      // --- Hamburger Menu Logic ---
-      const navToggle = document.querySelector('.nav-toggle');
-      const primaryNav = document.querySelector('.main-nav');
-
-      navToggle.addEventListener('click', () => {
-        const isVisible = primaryNav.getAttribute('data-visible') === 'true';
-        primaryNav.setAttribute('data-visible', !isVisible);
-        navToggle.setAttribute('aria-expanded', !isVisible);
-      });
-
-      // Close menu when a nav link is clicked
-      primaryNav.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-          primaryNav.setAttribute('data-visible', false);
-          navToggle.setAttribute('aria-expanded', false);
-        }
-      });
-    });
-  </script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>

@@ -1,3 +1,40 @@
+/* --- Color Variables & Theme Setup --- */
+:root {
+  --bg-color: #F5F5DC; /* Beige */
+  --text-color: #111;
+  --heading-color: #256349;
+  --section-bg: #fff;
+  --header-bg: #254e38;
+  --header-text: #ffffff;
+  --link-color: #256349;
+  --form-input-bg: #fff;
+  --form-input-border: #ccc;
+  --form-input-text: #333;
+  --modal-bg: #fff;
+  --footer-link-bg: #ffffff;
+  --footer-link-text: #256349;
+  --card-bg: #fdfdfd;
+  --card-border: #eee;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --heading-color: #66bb6a; /* A lighter green for dark mode */
+  --section-bg: #1e1e1e;
+  --header-bg: #1a1a1a;
+  --header-text: #e0e0e0;
+  --link-color: #66bb6a;
+  --form-input-bg: #2c2c2c;
+  --form-input-border: #555;
+  --form-input-text: #e0e0e0;
+  --modal-bg: #2c2c2c;
+  --footer-link-bg: #2c2c2c;
+  --footer-link-text: #66bb6a;
+  --card-bg: #2c2c2c;
+  --card-border: #444;
+}
+
 /* --- General Styles --- */
 html {
   scroll-behavior: smooth;
@@ -8,17 +45,18 @@ body {
   line-height: 1.7;
   margin: 0;
   padding: 0;
-  background-color: #F5F5DC; /* Beige */
-  color: #111;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4 {
   font-weight: 700; /* Bold font for headings */
-  color: #256349; /* Darker green for WCAG AA compliance */
+  color: var(--heading-color);
 }
 
 a {
-  color: #256349; /* Darker green for WCAG AA compliance */
+  color: var(--link-color);
   text-decoration: none;
   transition: opacity 0.2s ease; /* Add a smooth transition for hover */
 }
@@ -79,7 +117,7 @@ main {
 }
 
 section {
-  background-color: #fff;
+  background-color: var(--section-bg);
   margin-bottom: 2rem;
   padding: 2rem;
   border-radius: 8px;
@@ -91,15 +129,15 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #254e38; /* Darker green for WCAG AA */
-  color: #ffffff;
+  background-color: var(--header-bg);
+  color: var(--header-text);
   padding: 1rem 2rem;
 }
 
 header h1 {
   margin: 0;
   font-size: 2.2rem;
-  color: #ffffff;
+  color: var(--header-text);
 }
 
 header p {
@@ -113,7 +151,7 @@ header p {
 }
 
 footer {
-  background-color: #254e38; /* Darker green for WCAG AA */
+  background-color: var(--header-bg);
   color: rgba(255, 255, 255, 0.9); /* Light text for contrast */
   text-align: center;
   padding: 1.5rem 1rem;
@@ -122,8 +160,8 @@ footer {
 
 footer a {
   display: inline-block;
-  background-color: #ffffff;
-  color: #256349; /* Use AA-compliant green for text */
+  background-color: var(--footer-link-bg);
+  color: var(--footer-link-text);
   padding: 0.5rem 1rem;
   border-radius: 999px; /* Pill-shaped buttons */
   text-decoration: none;
@@ -146,11 +184,34 @@ footer a:hover {
   margin: 0.5rem 0 1rem;
 }
 
+/* --- Theme Toggle Button --- */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--header-text);
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle .sun { display: none; }
+.theme-toggle .moon { display: block; }
+
+[data-theme="dark"] .theme-toggle .sun { display: block; }
+[data-theme="dark"] .theme-toggle .moon { display: none; }
+
 /* --- Hamburger Menu Button --- */
 .nav-toggle {
   display: none; /* Hidden on desktop */
   position: absolute;
-  z-index: 2000;
+  z-index: 9999; /* Ensure it's on top of the nav menu overlay */
   right: 2rem;
   top: 2rem;
   background: transparent;
@@ -167,7 +228,7 @@ footer a:hover {
   left: 0;
   right: 0;
   height: 3px;
-  background-color: white;
+  background-color: var(--header-text);
   transition: transform 0.3s ease;
 }
 
@@ -188,9 +249,11 @@ footer a:hover {
 }
 
 /* --- Navigation Bar --- */
-/* .main-nav { */
-  /* Styles moved to .nav-list */
-/* } */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
 .nav-list {
   list-style: none;
   padding: 0;
@@ -202,7 +265,7 @@ footer a:hover {
 }
 
 .main-nav a {
-  color: #ffffff;
+  color: var(--header-text);
   font-weight: bold;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -255,8 +318,8 @@ footer a:hover {
   gap: 2rem;
 }
 .recipe-card {
-  background-color: #fdfdfd;
-  border: 1px solid #eee;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   cursor: pointer;
@@ -353,7 +416,7 @@ footer a:hover {
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: var(--modal-bg);
   padding: 2rem;
   border-radius: 8px;
   max-width: 800px;
@@ -383,6 +446,124 @@ footer a:hover {
   line-height: 1;
 }
 
+.modal-form-title {
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Make the purchase modal narrower than other modals */
+#purchase-modal .modal-content {
+  max-width: 550px;
+}
+
+/* --- Purchase Form --- */
+#purchase-form {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the fieldset legend */
+fieldset.form-group legend {
+  padding: 0; /* Reset browser default padding */
+  margin-bottom: 0.5rem;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--form-input-text);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid var(--form-input-border);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-appearance: none; /* Removes default browser styling on WebKit */
+  -moz-appearance: none; /* Removes default browser styling on Firefox */
+  appearance: none; /* Removes default browser styling */
+  background-color: var(--form-input-bg);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--heading-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 73, 0.2);
+}
+
+[data-theme="dark"] .form-group select {
+  /* Use a white arrow for dark mode dropdowns */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.cost-display {
+  text-align: center;
+  margin: 1rem 0 0;
+}
+
+.quantity-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.quantity-controls select {
+  flex: 1;
+}
+
+.btn-purchase {
+  background-color: #256349;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* --- Floating Cart Button --- */
+.cart-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background-color: #256349; /* Use the primary accent green */
+  color: #ffffff; /* White icon for high contrast */
+  border: 2px solid #ffffff; /* White border for visibility on the footer */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); /* A slightly stronger shadow */
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.cart-fab:hover {
+  transform: scale(1.1);
+  background-color: #2a7a5b; /* A slightly lighter green for hover */
+}
+
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
   main {
@@ -393,18 +574,37 @@ footer a:hover {
     padding: 1.5rem;
   }
 
+  /* --- Mobile Modal "Bottom Sheet" Style --- */
+  .modal {
+    align-items: flex-end; /* Align modal to the bottom */
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: 100%; /* Override desktop max-width */
+    max-height: 80vh; /* Limit height to 80% of the viewport */
+    border-radius: 20px 20px 0 0; /* Round top corners */
+    transform: translateY(100%); /* Initial state for slide-up animation */
+  }
+
+  .modal.active .modal-content {
+    transform: translateY(0); /* Active state for slide-up animation */
+  }
+
   header {
     padding: 1rem 1.5rem;
   }
 
   .nav-toggle {
+    position: relative;
     display: block;
   }
 
   .main-nav {
     position: fixed;
-    z-index: 1500;
+    z-index: 9998; /* Below the nav-toggle button */
     inset: 0 0 0 30%;
+    display: block; /* Override desktop flex settings */
     background: rgba(20, 20, 20, 0.9);
     backdrop-filter: blur(1rem);
     transform: translateX(100%);
@@ -419,6 +619,13 @@ footer a:hover {
     flex-direction: column;
     padding: min(20vh, 10rem) 2rem;
     gap: 2rem;
+  }
+
+  .main-nav .theme-toggle {
+    position: absolute;
+    bottom: min(10vh, 5rem);
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .header-branding {
@@ -470,5 +677,10 @@ footer a:hover {
   footer a {
     width: 80%;
     max-width: 300px;
+  }
+
+  .cart-fab {
+    bottom: 1.5rem;
+    right: 1.5rem;
   }
 }
