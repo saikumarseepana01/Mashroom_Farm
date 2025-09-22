@@ -27,6 +27,41 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       margin-bottom: 1.5rem;
     }
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .image-gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .about-section {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .about-section img {
+      max-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    /* Responsive layout for about section */
+    @media (max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-section img {
+        max-width: 100%;
+        margin-bottom: 1rem;
+      }
+      .image-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
     h2 {
       color: #2e7d32;
     }
@@ -95,9 +130,12 @@
     <p>Milky Mushroom - Nature’s Superfood</p>
   </header>
 
-  <section>
-    <h2>About Milky Mushroom (Calocybe indica)</h2>
-    <p>Milky Mushroom, also known as Calocybe indica, is a tropical edible mushroom cultivated widely in India. Known for its thick, fleshy texture and pure white color, it is not only delicious but also packed with nutrients and health benefits.</p>
+  <section class="about-section">
+    <div>
+      <h2>About Milky Mushroom (Calocybe indica)</h2>
+      <p>Milky Mushroom, also known as Calocybe indica, is a tropical edible mushroom cultivated widely in India. Known for its thick, fleshy texture and pure white color, it is not only delicious but also packed with nutrients and health benefits.</p>
+    </div>
+    <img src="images/milky_mushrooms.jpg" alt="A cluster of fresh, white milky mushrooms">
   </section>
 
   <section>
@@ -123,6 +161,14 @@
       <li>Vitamins: B-complex, Vitamin D</li>
       <li>Minerals: Potassium, Phosphorus, Calcium, Iron</li>
     </ul>
+  </section>
+  <section>
+    <h2>Delicious Milky Mushroom Gallery</h2>
+    <div class="image-gallery">
+      <img src="files/images/mushroom1.jpeg" alt="Milky Mushroom ">
+      <img src="files/images/mushroom2.jpeg" alt="Milky Mushroom ">
+      <img src="files/images/mushroom3.jpeg" alt="Milky Mushroom ">
+    </div>
   </section>
 
   <section>
@@ -286,6 +332,7 @@
       </div>
     </div>
   </section>
+  
 
   <footer>
     <p>© 2025 Shroom Farms | Healthy Living with Mushrooms</p>
