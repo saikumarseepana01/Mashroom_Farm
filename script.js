@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const purchaseForm = document.getElementById('purchase-form');
     const purchaseModal = document.getElementById('purchase-modal');
     if (purchaseForm) {
-        const quantityValueSelect = document.getElementById('quantity-value');
+        const quantityValueInput = document.getElementById('quantity-value');
         const quantityUnitSelect = document.getElementById('quantity-unit');
         const totalCostSpan = document.getElementById('total-cost');
 
@@ -153,45 +153,45 @@ document.addEventListener('DOMContentLoaded', () => {
             g: 0.05 // Price per gram (50 / 1000)
         };
 
-        const quantityOptions = {
-            kg: [1, 2, 3, 4, 5],
-            g: [250, 500, 750]
-        };
-
-        const populateQuantityValues = (unit) => {
-            const options = quantityOptions[unit];
-            quantityValueSelect.innerHTML = ''; // Clear existing options
-            options.forEach(optionValue => {
-                const option = document.createElement('option');
-                option.value = optionValue;
-                option.textContent = optionValue;
-                quantityValueSelect.appendChild(option);
-            });
+        const updateQuantityInputAttributes = (unit) => {
+            if (unit === 'kg') {
+                quantityValueInput.min = '0.25';
+                quantityValueInput.step = '0.25';
+                quantityValueInput.value = '1';
+            } else { // 'g'
+                quantityValueInput.min = '250';
+                quantityValueInput.step = '50';
+                quantityValueInput.value = '500';
+            }
         };
 
         const calculateCost = () => {
-            const value = parseFloat(quantityValueSelect.value);
+            const value = parseFloat(quantityValueInput.value);
             const unit = quantityUnitSelect.value;
+            if (isNaN(value) || value <= 0) {
+                totalCostSpan.textContent = '0.00';
+                return;
+            }
             const cost = value * prices[unit];
             totalCostSpan.textContent = cost.toFixed(2);
         };
 
         // Event Listeners
         quantityUnitSelect.addEventListener('change', () => {
-            populateQuantityValues(quantityUnitSelect.value);
+            updateQuantityInputAttributes(quantityUnitSelect.value);
             calculateCost();
         });
 
-        quantityValueSelect.addEventListener('change', calculateCost);
+        quantityValueInput.addEventListener('input', calculateCost);
 
         // Initial setup on page load
-        populateQuantityValues(quantityUnitSelect.value);
+        updateQuantityInputAttributes(quantityUnitSelect.value);
         calculateCost();
 
         purchaseForm.addEventListener('submit', (e) => {
             e.preventDefault(); // Prevent default form submission
 
-            const quantityValue = quantityValueSelect.value;
+            const quantityValue = quantityValueInput.value;
             const quantityUnit = quantityUnitSelect.value;
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Reset the form and close the modal
             purchaseForm.reset();
             closeModal(purchaseModal);
-            populateQuantityValues(quantityUnitSelect.value);
+            updateQuantityInputAttributes(quantityUnitSelect.value);
             calculateCost();
         });
     }

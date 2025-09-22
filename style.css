@@ -501,6 +501,11 @@ fieldset.form-group legend {
   background-size: 16px 12px;
 }
 
+/* Remove the custom dropdown arrow from number inputs */
+.form-group input[type="number"] {
+  background-image: none;
+}
+
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
