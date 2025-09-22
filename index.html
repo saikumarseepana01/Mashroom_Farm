@@ -41,12 +41,52 @@
       margin-top: 2rem;
       border-radius: 0 0 20px 20px;
     }
-    /* img{
-      display: block;
-      margin: 1rem auto;
-      max-width: 200px;
-      height: auto;
-    } */
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      margin-top: 1rem;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .recipes-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .recipe {
+      border: 1px solid #e0e0e0;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .recipe h3 {
+      color: #d84315;
+      margin-bottom: 1rem;
+    }
+    .recipe h4 {
+      color: #2e7d32;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .recipe ul, .recipe ol {
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+    .recipe .video-container {
+      margin-top: auto; /* Pushes video to the bottom */
+      padding-top: 56.25%; /* Resets aspect ratio */
+    }
+   
   </style>
 </head>
 <body>
@@ -56,7 +96,6 @@
   </header>
 
   <section>
-    <!-- <img src="Qr.jpeg" alt="Qr to knowmore"> -->
     <h2>About Milky Mushroom (Calocybe indica)</h2>
     <p>Milky Mushroom, also known as Calocybe indica, is a tropical edible mushroom cultivated widely in India. Known for its thick, fleshy texture and pure white color, it is not only delicious but also packed with nutrients and health benefits.</p>
   </section>
@@ -84,6 +123,168 @@
       <li>Vitamins: B-complex, Vitamin D</li>
       <li>Minerals: Potassium, Phosphorus, Calcium, Iron</li>
     </ul>
+  </section>
+
+  <section>
+    <h2>Delicious Milky Mushroom Recipes</h2>
+
+    <div class="recipes-grid">
+      <div class="recipe">
+        <h3>Milky Mushroom Gravy (Curry)</h3>
+        <p>A rich and creamy curry with a luscious gravy made from tomato puree and cashew paste. This restaurant-style dish is perfect for serving with naan, roti, or steamed rice.</p>
+        <h4>Ingredients:</h4>
+        <ul>
+          <li>Milky mushrooms – 200 g (chopped)</li>
+          <li>Onion – 2 (sliced)</li>
+          <li>Tomato – 2 (pureed)</li>
+          <li>Ginger–garlic paste – 1 tsp</li>
+          <li>Green chili – 1</li>
+          <li>Cashew nuts – 8 (soaked & ground to paste)</li>
+          <li>Red chili powder – 1 tsp</li>
+          <li>Turmeric – ¼ tsp</li>
+          <li>Garam masala – ½ tsp</li>
+          <li>Coriander powder – 1 tsp</li>
+          <li>Fresh cream or milk – 2 tbsp (optional)</li>
+          <li>Oil/butter – 2 tbsp</li>
+          <li>Salt – to taste</li>
+        </ul>
+        <h4>Procedure:</h4>
+        <ol>
+          <li>Heat oil/butter, sauté onions till golden.</li>
+          <li>Add ginger–garlic paste and green chili → fry.</li>
+          <li>Add tomato puree and cook till oil separates.</li>
+          <li>Add turmeric, chili powder, coriander powder, and salt.</li>
+          <li>Add mushrooms, stir well, cover and cook 5 minutes.</li>
+          <li>Add cashew paste and little water to make gravy.</li>
+          <li>Simmer for 5 minutes → finish with garam masala and cream/milk.</li>
+          <li>Garnish with coriander and serve with rice/naan.</li>
+        </ol>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/mpSbTsGqK84?si=GVXyG77G7jP5XbBZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="recipe">
+        <h3>Milky Mushroom Fry (Dry Curry)</h3>
+        <p>A simple and spicy stir-fry where mushrooms are cooked with onions, tomatoes, and aromatic spices. It's a quick dish that pairs wonderfully with flatbreads or as a side to a main meal.</p>
+        <h4>Ingredients:</h4>
+        <ul>
+          <li>Milky mushrooms – 200 g (sliced)</li>
+          <li>Onion – 1 (finely chopped)</li>
+          <li>Tomato – 1 (chopped)</li>
+          <li>Green chili – 2 (slit)</li>
+          <li>Ginger–garlic paste – 1 tsp</li>
+          <li>Red chili powder – 1 tsp</li>
+          <li>Turmeric – ¼ tsp</li>
+          <li>Coriander powder – 1 tsp</li>
+          <li>Salt – to taste</li>
+          <li>Oil – 2 tbsp</li>
+          <li>Curry leaves & coriander leaves – few</li>
+        </ul>
+        <h4>Procedure:</h4>
+        <ol>
+          <li>Clean mushrooms well and cut into thin slices.</li>
+          <li>Heat oil in a pan, add curry leaves, onion, and green chilies. Sauté until onions turn golden.</li>
+          <li>Add ginger–garlic paste → fry for 1 minute.</li>
+          <li>Add tomatoes → cook till soft.</li>
+          <li>Add turmeric, chili, coriander powder, and salt.</li>
+          <li>Add mushrooms, mix well, cover, and cook for 8–10 minutes on medium flame (no need of water, mushroom releases moisture).</li>
+          <li>Garnish with coriander leaves and serve with roti or rice.</li>
+        </ol>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/mpSbTsGqK84?si=FRdV0gCxJAZ79ndt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="recipe">
+        <h3>Milky Mushroom Biryani</h3>
+        <p>A fragrant and aromatic one-pot rice dish. Layers of spiced milky mushrooms and fluffy basmati rice are slow-cooked to perfection, creating a royal and satisfying meal.</p>
+        <h4>Ingredients:</h4>
+        <ul>
+          <li>Basmati rice – 1 cup</li>
+          <li>Milky mushrooms – 200 g (sliced)</li>
+          <li>Onion – 2 (sliced)</li>
+          <li>Tomato – 1 (chopped)</li>
+          <li>Ginger–garlic paste – 1 tsp</li>
+          <li>Green chili – 2</li>
+          <li>Mint & coriander leaves – ½ cup each</li>
+          <li>Curd – ½ cup</li>
+          <li>Biryani masala – 1 tbsp</li>
+          <li>Turmeric – ¼ tsp</li>
+          <li>Whole spices (bay leaf, cinnamon, cardamom, cloves) – few</li>
+          <li>Oil/ghee – 3 tbsp</li>
+          <li>Salt – to taste</li>
+        </ul>
+        <h4>Procedure:</h4>
+        <ol>
+          <li>Wash and soak rice 30 min → cook till 70% done → drain.</li>
+          <li>Heat oil/ghee, fry whole spices, onions till golden.</li>
+          <li>Add ginger–garlic paste, green chili, tomato, and fry.</li>
+          <li>Add curd, biryani masala, turmeric, and salt.</li>
+          <li>Add sliced mushrooms, cook 5 minutes.</li>
+          <li>Layer cooked rice on top, sprinkle mint & coriander.</li>
+          <li>Cover with tight lid → cook on low flame (“dum”) for 15 min.</li>
+          <li>Serve hot with raita.</li>
+        </ol>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/ZNztbwGusQ8?si=pxrW3OEhFy4Hs-uo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="recipe">
+        <h3>Milky Mushroom Pakoda</h3>
+        <p>A crispy and addictive snack. Mushroom strips are coated in a spiced gram flour batter and deep-fried until golden. Perfect for a rainy day, served hot with tea or chutney.</p>
+        <h4>Ingredients:</h4>
+        <ul>
+          <li>Milky mushrooms – 150 g (cut into strips)</li>
+          <li>Gram flour (besan) – 1 cup</li>
+          <li>Rice flour – 2 tbsp</li>
+          <li>Red chili powder – 1 tsp</li>
+          <li>Carom seeds (ajwain) – ½ tsp</li>
+          <li>Salt – to taste</li>
+          <li>Oil – for frying</li>
+        </ul>
+        <h4>Procedure:</h4>
+        <ol>
+          <li>Mix besan, rice flour, chili powder, ajwain, and salt with little water to make thick batter.</li>
+          <li>Dip mushroom strips in batter.</li>
+          <li>Heat oil → deep fry till golden and crisp.</li>
+          <li>Serve hot with chutney/tea.</li>
+        </ol>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/2JJijl7IaW0?si=wcw1eUI9c3MP-Vir" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="recipe">
+        <h3>Milky Mushroom Soup</h3>
+        <p>A light, comforting, and healthy soup. Finely chopped mushrooms are simmered in a flavorful broth, creating a warm and nourishing appetizer.</p>
+        <h4>Ingredients:</h4>
+        <ul>
+          <li>Milky mushrooms – 150 g (finely chopped)</li>
+          <li>Onion – 1 (chopped)</li>
+          <li>Garlic – 3 cloves (chopped)</li>
+          <li>Butter – 1 tbsp</li>
+          <li>Corn flour – 1 tbsp (mixed in 2 tbsp water)</li>
+          <li>Black pepper – ½ tsp</li>
+          <li>Salt – to taste</li>
+          <li>Fresh coriander – few sprigs</li>
+          <li>Water/veg stock – 3 cups</li>
+        </ul>
+        <h4>Procedure:</h4>
+        <ol>
+          <li>Heat butter in a pan → sauté garlic and onion till soft.</li>
+          <li>Add mushrooms and cook for 5 minutes.</li>
+          <li>Add 3 cups of water/veg stock → boil 10 minutes.</li>
+          <li>Blend half portion (optional) for creamy texture.</li>
+          <li>Add corn flour slurry, boil till soup thickens.</li>
+          <li>Season with salt & pepper → garnish with coriander.</li>
+        </ol>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/a8BsCoJk7B0?si=4I9lsBbZXRxbTEGz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
