@@ -149,8 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalCostSpan = document.getElementById('total-cost');
 
         const prices = {
-            kg: 50, // Price per kg
-            g: 0.05 // Price per gram (50 / 1000)
+            kg: 449, // Price per kg
+            g: 0.449 // Price per gram (449 / 1000)
         };
 
         const updateQuantityInputAttributes = (unit) => {
