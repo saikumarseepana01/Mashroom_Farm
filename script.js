@@ -156,12 +156,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const updateQuantityInputAttributes = (unit) => {
             if (unit === 'kg') {
                 quantityValueInput.min = '0.25';
-                quantityValueInput.step = '0.25';
-                quantityValueInput.value = '1';
+                quantityValueInput.step = '0.25'; // Allow 250g increments when in kg mode
+                quantityValueInput.max = '10'; // Maximum 10kg
+                quantityValueInput.value = '1'; // Default to 1kg when switching to kg
             } else { // 'g'
                 quantityValueInput.min = '250';
                 quantityValueInput.step = '50';
-                quantityValueInput.value = '500';
+                quantityValueInput.max = '10000'; // Maximum 10kg = 10000g
+                quantityValueInput.value = '250'; // Default to minimum when switching to g
             }
         };
 
@@ -169,11 +171,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const value = parseFloat(quantityValueInput.value);
             const unit = quantityUnitSelect.value;
             if (isNaN(value) || value <= 0) {
-                totalCostSpan.textContent = '0.00';
+                totalCostSpan.textContent = `₹0.00 / ${unit}`; // Display unit even for 0 cost
                 return;
             }
             const cost = value * prices[unit];
-            totalCostSpan.textContent = cost.toFixed(2);
+            totalCostSpan.textContent = `₹${cost.toFixed(2)} / ${unit}`;
         };
 
         // Event Listeners
@@ -201,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const recipientNumber = '919347442664'; // Your WhatsApp number from the footer
 
             // Construct the message with all order details
-            const message = `New Order from Shroom Farms Website:\n-----------------------------------\n\n*Product:* Milky Mushroom\n*Quantity:* ${quantityValue} ${quantityUnit}\n*Total Cost:* ₹${totalCost}\n\n*Customer Details:*\n*Name:* ${name}\n*Phone:* ${phone}\n*Address:* ${address}`;
+            const message = `New Order from Shroom Farms Website:\n-----------------------------------\n\n*Product:* Milky Mushroom\n*Quantity:* ${quantityValue} ${quantityUnit}\n*Total Cost:* ${totalCost}\n\n*Customer Details:*\n*Name:* ${name}\n*Phone:* ${phone}\n*Address:* ${address}`;
 
             const encodedMessage = encodeURIComponent(message);
             const whatsappURL = `https://wa.me/${recipientNumber}?text=${encodedMessage}`;

@@ -98,7 +98,7 @@ img {
   position: absolute;
   top: -100px; /* Position off-screen */
   left: 0;
-  background: #254e38; /* Darker green for WCAG AA */
+  background: #005fcc; /* Use a distinct blue for better visibility against header */
   color: white;
   padding: 0.5rem 1rem;
   z-index: 1100; /* Ensure it's on top of other content */

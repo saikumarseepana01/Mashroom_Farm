@@ -146,12 +146,12 @@
         <fieldset class="form-group">
           <legend>Quantity</legend>
           <div class="quantity-controls">
-            <label for="quantity-value" class="sr-only">Amount</label>
-            <input type="number" id="quantity-value" name="quantity-value" required>
+            <label for="quantity-value" class="sr-only">Amount in grams</label>
+            <input type="number" id="quantity-value" name="quantity-value" required min="250" step="50" value="250">
             <label for="quantity-unit" class="sr-only">Unit</label>
             <select id="quantity-unit" name="quantity-unit" required>
-              <option value="kg" selected>kg</option>
-              <option value="g">grams</option>
+              <option value="g" selected>grams</option>
+              <option value="kg">kg</option>
             </select>
           </div>
         </fieldset>
@@ -168,7 +168,7 @@
           <textarea id="address" name="address" rows="4" required></textarea>
         </div>
         <div class="cost-display">
-          <h3>Total Cost: ₹<span id="total-cost">0</span></h3>
+          <h3>Total Cost: <span id="total-cost"></span></h3>
         </div>
         <button type="submit" class="btn-purchase">Purchase</button>
       </form>
@@ -384,6 +384,7 @@
   <footer id="footer-content" tabindex="-1">
     <p>To know more about the farm, contact us:</p>
     <div class="footer-links">
+      <a href="tel:+917816062119">+91 78160 62119</a>
       <a href="tel:+919347442664">+91 93474 42664</a>
       <a href="mailto:kasarabadapavansai@gmail.com">kasarabadapavansai@gmail.com</a>
     </div>
