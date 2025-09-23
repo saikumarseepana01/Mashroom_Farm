@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 quantityValueInput.value = '1'; // Default to 1kg when switching to kg
             } else { // 'g'
                 quantityValueInput.min = '250';
-                quantityValueInput.step = '50';
+                quantityValueInput.step = '250';
                 quantityValueInput.max = '10000'; // Maximum 10kg = 10000g
                 quantityValueInput.value = '250'; // Default to minimum when switching to g
             }
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             const cost = value * prices[unit];
-            totalCostSpan.textContent = `₹${cost.toFixed(2)} / ${unit}`;
+            totalCostSpan.textContent = `₹${cost.toFixed(2)} / ${value} ${unit}`;
         };
 
         // Event Listeners
