@@ -524,6 +524,21 @@ fieldset.form-group legend {
   margin: 1rem 0 0;
 }
 
+.delivery-note {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background-color: rgba(255, 224, 130, 0.3); /* Light warning yellow */
+  border: 1px solid rgba(255, 193, 7, 0.4); /* Amber color border */
+  margin: 0; /* The form's grid gap will handle spacing */
+}
+
+[data-theme="dark"] .delivery-note {
+  background-color: rgba(255, 224, 130, 0.1);
+  border-color: rgba(255, 224, 130, 0.3);
+}
+
 .quantity-controls {
   display: flex;
   gap: 0.75rem;
