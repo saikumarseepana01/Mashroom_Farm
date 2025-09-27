@@ -465,6 +465,12 @@ footer a:hover {
   margin-top: 0;
 }
 
+/* Style for the modal gallery */
+.modal-gallery {
+  margin-top: 1.5rem;
+}
+
+
 /* Make the purchase modal narrower than other modals */
 #purchase-modal .modal-content {
   max-width: 550px;
@@ -581,6 +587,25 @@ fieldset.form-group legend {
   transition: background-color 0.3s ease;
 }
 
+/* Secondary button style for "View Images" */
+.btn-secondary {
+  display: block;
+  width: max-content;
+  margin: 0 auto 1.5rem; /* Center the button and add space below */
+  background-color: transparent;
+  color: var(--link-color);
+  border: 2px solid var(--form-input-border);
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-color);
+}
 /* --- Floating Cart Button --- */
 .cart-fab {
   position: fixed;

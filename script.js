@@ -155,6 +155,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Image Gallery Modal Logic ---
+    const viewGalleryBtn = document.getElementById('view-gallery-btn');
+    const imageGalleryModal = document.getElementById('image-gallery-modal');
+
+    viewGalleryBtn.addEventListener('click', () => {
+        openModal(imageGalleryModal, viewGalleryBtn);
+    });
+
     // --- Purchase Form Logic ---
     const purchaseForm = document.getElementById('purchase-form');
     const purchaseModal = document.getElementById('purchase-modal');

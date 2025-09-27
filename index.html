@@ -152,6 +152,7 @@
     <div class="modal-content">
       <button class="close-button" aria-label="Close">&times;</button>
       <h2 id="purchase-modal-title" class="modal-form-title">Purchase Milky Mushrooms</h2>
+      <button type="button" id="view-gallery-btn" class="btn-secondary">View Product Images</button>
       <form id="purchase-form">
         <fieldset class="form-group">
           <legend>Quantity</legend>
@@ -423,6 +424,22 @@
       </article>
     </div>
   </div>
+
+  <!-- Image Gallery Modal -->
+  <div id="image-gallery-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-button" aria-label="Close">&times;</button>
+      <h3 id="gallery-modal-title">Product Gallery</h3>
+      <div class="image-gallery modal-gallery">
+        <!-- Images from the page will be cloned here by JavaScript -->
+        <img src="files/images/packing1.jpeg" alt="Packaging for Shroom Farms milky mushrooms">
+        <img src="files/images/packing2.jpeg" alt="Another view of the product packaging">
+        <img src="files/images/packing3.jpeg" alt="Close-up of the milky mushroom packaging">
+        <img src="files/images/packing4.jpeg" alt="Packaged milky mushrooms ready for delivery">
+      </div>
+    </div>
+  </div>
+
 
   <!-- MODALS END HERE -->
 
