@@ -225,7 +225,7 @@ footer a:hover {
 .nav-toggle {
   display: none; /* Hidden on desktop */
   position: absolute;
-  z-index: 9999; /* Ensure it's on top of the nav menu overlay */
+  z-index: 9997; /* Ensure it's below the nav menu overlay */
   right: 2rem;
   top: 2rem;
   background: transparent;
@@ -742,8 +742,8 @@ fieldset.form-group legend {
   }
 
   footer a {
-    width: 80%;
-    max-width: 300px;
+    width: auto; /* Let the button size itself */
+    max-width: none; /* Remove max-width */
   }
 
   .cart-fab {
