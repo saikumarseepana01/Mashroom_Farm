@@ -182,6 +182,20 @@ footer a:hover {
   gap: 1rem;
   flex-wrap: wrap;
   margin: 0.5rem 0 1rem;
+  align-items: center; /* Align items vertically */
+}
+
+/* Style for icon-only links in the footer */
+.footer-icon-link {
+  padding: 0.6rem; /* Adjust padding for a circular shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-icon-link svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* --- Theme Toggle Button --- */
@@ -501,6 +515,13 @@ fieldset.form-group legend {
   background-size: 16px 12px;
 }
 
+/* Remove dropdown arrow from text inputs and textarea */
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group textarea {
+  background-image: none;
+  resize: none; /* Prevent textarea from being resized */
+}
 /* Remove the custom dropdown arrow from number inputs */
 .form-group input[type="number"] {
   background-image: none;

@@ -31,7 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
         previouslyFocusedElement = card; // Save the element that opened the modal
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
-        modal.querySelector('.close-button').focus(); // Move focus to the close button
+
+        // For the purchase modal, focus the first input. For others, focus the close button.
+        const firstInput = modal.querySelector('input, select, textarea');
+        if (modal.id === 'purchase-modal' && firstInput) {
+            firstInput.focus();
+        } else {
+            modal.querySelector('.close-button').focus();
+        }
     };
 
     // Function to close a modal
@@ -58,6 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
         openModal(purchaseModal, cartButton);
     });
 
+    // Add keyboard accessibility to the floating cart button
+    cartButton.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault(); // Prevent space from scrolling
+            const purchaseModal = document.getElementById('purchase-modal');
+            openModal(purchaseModal, cartButton);
+        }
+    });
     // Add listeners to each recipe card
     recipeCards.forEach(card => {
         // Open on click
